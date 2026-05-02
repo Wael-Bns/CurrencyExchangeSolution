@@ -8,17 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<ICurrencyConverterService, CurrencyConverterService>();
 
 // Add http client
-builder.Services.AddHttpClient<FastExchangeHttpClient>(client =>
+builder.Services.AddHttpClient<IConversionProvider, FastExchangeHttpClient>((serviceProvider, client) =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["FastExchangeApi:BaseUrl"]);
+    var baseUrl = builder.Configuration["FastExchangeApi:BaseUrl"];
+    client.BaseAddress = new Uri(baseUrl!);
 });
-
-builder.Services.AddScoped<ICurrencyConverterService, CurrencyConverterService>();
 
 var app = builder.Build();
 

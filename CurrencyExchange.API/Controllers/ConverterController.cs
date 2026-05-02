@@ -1,4 +1,5 @@
-﻿using CurrencyExchange.API.ServiceContracts;
+﻿using CurrencyExchange.API.DTO;
+using CurrencyExchange.API.ServiceContracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CurrencyExchange.API.Controllers
@@ -13,17 +14,18 @@ namespace CurrencyExchange.API.Controllers
             _currencyConverterService = currencyConverterService;
         }
         [HttpGet]
-        public async Task<IActionResult> Convert([FromQuery] string from, [FromQuery] string to, [FromQuery] decimal amount)
+        public async Task<IActionResult> Convert([FromQuery] ConvertRequestDTO convertRequestDTO)
         {
-            try
+            if(!ModelState.IsValid)
             {
-                var result = await _currencyConverterService.ConvertCurrency(from, to, amount);
-                return Ok(result);
+                return BadRequest(ModelState);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            string cleanFrom = convertRequestDTO.From.Trim().ToUpperInvariant();
+            string cleanTo = convertRequestDTO.To.Trim().ToUpperInvariant();
+            decimal amount = convertRequestDTO.Amount;
+
+            var result = await _currencyConverterService.ConvertCurrency(cleanFrom, cleanTo, amount);
+            return Ok(result);
         }
     }
 }
