@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37203.1 d17.14
+VisualStudioVersion = 17.14.37203.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyExchange.API", "CurrencyExchange.API\CurrencyExchange.API.csproj", "{90E5A62A-05BF-4829-99A5-FACB42748C10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyExchange.UnitTests", "CurrencyExchange.UnitTests\CurrencyExchange.UnitTests.csproj", "{BC7250A0-F313-413A-91D7-411409E7E6DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{90E5A62A-05BF-4829-99A5-FACB42748C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90E5A62A-05BF-4829-99A5-FACB42748C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90E5A62A-05BF-4829-99A5-FACB42748C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7250A0-F313-413A-91D7-411409E7E6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7250A0-F313-413A-91D7-411409E7E6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7250A0-F313-413A-91D7-411409E7E6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7250A0-F313-413A-91D7-411409E7E6DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

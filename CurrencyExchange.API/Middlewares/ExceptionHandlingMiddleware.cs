@@ -25,7 +25,7 @@ namespace CurrencyExchange.API.Middlewares
             {
                 _logger.LogError(ex, "An unhandled exception occurred while processing the request.");
                 httpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
-                await httpContext.Response.WriteAsync("An unexpected error occurred. Please try again later.");
+                await httpContext.Response.WriteAsync(ex.Message ?? "An unexpected error occurred. Please try again later.");
             }
         }
     }
