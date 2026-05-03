@@ -22,9 +22,9 @@ namespace CurrencyExchange.API.HttpClients
                 string errorContent = await response.Content.ReadAsStringAsync();
                 FastExchangeApiErrorResponse? errorResponse = JsonSerializer.Deserialize<FastExchangeApiErrorResponse>(errorContent);
                 string errorMessage = errorResponse != null ? 
-                    $"API Error - {errorResponse.Error}" 
+                    $"{errorResponse.Error}" 
                     :
-                    $"Unknown API error occurred.";
+                    $"Unknown error occurred.";
                 throw new InvalidOperationException(errorMessage);
             }
 
