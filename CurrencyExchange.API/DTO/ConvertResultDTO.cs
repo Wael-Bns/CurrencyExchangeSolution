@@ -1,4 +1,4 @@
 ﻿namespace CurrencyExchange.API.DTO
 {
-    public record ConvertResultDTO(decimal result);
+    public record ConvertResultDTO(decimal Result);
 }
